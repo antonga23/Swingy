@@ -1,4 +1,4 @@
 package Swingy.Controller;
 
-public class Battle {
+public class HeroGeneration {
 }

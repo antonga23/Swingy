@@ -1,11 +1,16 @@
 package Swingy.Model.Artifacts;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
+import lombok.Getter;
+import lombok.Setter;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 public abstract class Artifacts {
+    @NotNull @Getter
     protected String type;
+    @NotNull @Getter
     protected String name;
+    @Getter @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="The value must be positive")
     protected int boost;
+    @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="The value must be positive")
     protected int level;
 
     public Artifacts() {
@@ -17,18 +22,6 @@ public abstract class Artifacts {
 
     public Artifacts(int level) {
         this.level = level;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public int getBoost(){
-        return this.boost;
-    }
-
-    public String getType(){
-        return this.type;
     }
 }
 

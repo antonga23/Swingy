@@ -3,19 +3,24 @@ package Swingy.Model.Character;
 import javax.validation.constraints.NotNull;
 import Swingy.Model.*;
 import Swingy.Model.Utils.Map;
-
-import java.util.Random;
+import lombok.Getter;
+import lombok.Setter;
 
 public abstract class Character {
 
-    @NotNull
+    @NotNull @Getter @Setter
     protected String heroName;
-    protected String heroClass;
+
     protected int level;
+    @Getter @Setter
     protected int experience;
+    @Getter @Setter
     protected int attack;
+    @Getter @Setter
     protected int defense;
+    @Getter @Setter
     protected int hitPoints;
+    @Getter @Setter
     protected Map map;
 
     public Character() {
@@ -39,63 +44,8 @@ public abstract class Character {
         this.experience = experience;
     }
 
-    Random seed = new Random();
-
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
-    }
-
-    public String getHeroName() {
-        return heroName;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
-    }
-
-    public int getHitPoints() {
-        return hitPoints;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
-    public Map getMap() {
-        return map;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public int attack() {
-        int low = (30 * getAttack()) / 100;
-        return seed.nextInt(getAttack() - low) + low;
-    }
-
-    public int defense() {
-        int low = (70 * getDefense()) / 100;
-        return seed.nextInt(getAttack() - low) + low;
+    public int getLevel(){
+        int currentLevel = level*1000+(level -1)*(level -1)*450;
+        return currentLevel;
     }
 }
