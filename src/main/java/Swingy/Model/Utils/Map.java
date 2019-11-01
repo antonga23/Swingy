@@ -1,12 +1,12 @@
 package Swingy.Model.Utils;
 import lombok.Getter;
 import lombok.Setter;
-import javax.validation.constraints.Pattern;
+
 
 public class Map {
-    @Getter @Setter @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="The value must be positive")
+    @Getter @Setter
     protected int x;
-    @Getter @Setter @Pattern(regexp = "[\\s]*[0-9]*[1-9]+",message="The value must be positive")
+    @Getter @Setter
     protected int y;
 
     public Map() {
