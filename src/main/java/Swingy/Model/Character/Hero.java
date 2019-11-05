@@ -3,7 +3,9 @@ import javax.validation.constraints.NotNull;
 import Swingy.Model.Artifacts.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+@ToString
 public class Hero extends Character{
     @NotNull @Getter @Setter
     protected String heroClass;
@@ -26,5 +28,9 @@ public class Hero extends Character{
         this.currentExperience = 0;
         this.heroClass = heroClass;
         this.currentHitPpoints = hitPoints;
+    }
+
+    @Override public String toString(){
+        return "Hero(" + " name:" + heroName + " class:" + heroClass + " attack:" + attack + " defense" + defense + " hit points" + hitPoints + " level" + level + ")";
     }
 }
